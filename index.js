@@ -19,15 +19,22 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
         const fullExpenses = parseInt(foodInput) + parseInt(rentInput) + parseInt(clotheInput)
         // updated total expenses
         totalExpenses.innerText = fullExpenses
-
-        // update balance
-        const balance = income - fullExpenses;
-        totalbalance.innerText = balance
+        // bonus part
+        if (income > fullExpenses) {
+            // update balance
+            const balance = income - fullExpenses;
+            totalbalance.innerText = balance
+        }
+        else {
+            alert("your expenses is more than your income")
+        }
 
     }
     else {
         alert('please provide positive number');
     }
+    // bonus part
+
 
 
 
@@ -40,18 +47,39 @@ document.getElementById('save-btn').addEventListener('click', function () {
     const savingAmountText = document.getElementById('saving-amount');
     const savingAmount = savingAmountText.innerText;
 
+    const totalbalance = document.getElementById("balance")
+    const totalbalanceText = totalbalance.innerText
+
     if (saveInput.value > 0) {
+
+
+        let updateSavingAmount = percentage(income, save)
+        if (updateSavingAmount < totalbalanceText) {
+
+            savingAmountText.innerText = updateSavingAmount
+
+
+            // update saving amount
+            updateSavingAmount = percentage(income, save)
+            const remainingBalanceText = document.getElementById('remaining-balance');
+            const remainingBalance = remainingBalanceText.innerText;
+            debugger;
+            const finalRemainingBalance = totalbalanceText - updateSavingAmount
+            remainingBalanceText.innerText = finalRemainingBalance
+
+        }
+        else {
+            alert('your saving amount is moe than your Balance')
+        }
+
+
         // update saving amount
-        const updateSavingAmount = percentage(income, save)
-        savingAmountText.innerText = updateSavingAmount
-
-
-        const totalbalance = document.getElementById("balance")
-        const totalbalanceText = totalbalance.innerText
-        const remainingBalanceText = document.getElementById('remaining-balance');
-        const remainingBalance = remainingBalanceText.innerText;
-        const finalRemainingBalance = totalbalanceText - updateSavingAmount
-        remainingBalanceText.innerText = finalRemainingBalance
+        // updateSavingAmount = percentage(income, save)
+        // const remainingBalanceText = document.getElementById('remaining-balance');
+        // const remainingBalance = remainingBalanceText.innerText;
+        // debugger;
+        // const finalRemainingBalance = totalbalanceText - updateSavingAmount
+        // remainingBalanceText.innerText = finalRemainingBalance
     }
     else {
         alert('please give postive value')
