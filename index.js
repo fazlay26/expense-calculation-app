@@ -1,17 +1,28 @@
 function percentage(num, per) {
     return (num / 100) * per;
 }
-
-// console.log(percentage(10000, 20));
-
-document.getElementById('calculate-btn').addEventListener('click', function () {
+function incomeInput() {
     const incomeInput = document.getElementById("income-input")
     const income = incomeInput.value
+    return income
+}
+// function balanceInput() {
+//     const totalbalance = document.getElementById("balance")
+//     const totalbalanceText = totalbalance.innerText
+//     return totalbalanceText
+
+// }
+document.getElementById('calculate-btn').addEventListener('click', function () {
+    // const incomeInput = document.getElementById("income-input")
+    // const income = incomeInput.value
+
+    const income = incomeInput();
     const foodInput = document.getElementById("food-input").value
     const rentInput = document.getElementById('rent-input').value
     const clotheInput = document.getElementById('clothes-input').value
     const totalExpenses = document.getElementById('total-expenses')
     const totalExpensesText = totalExpenses.innerText
+
     const totalbalance = document.getElementById("balance")
     const totalbalanceText = totalbalance.innerText
 
@@ -36,13 +47,16 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
 })
 document.getElementById('save-btn').addEventListener('click', function () {
-    const incomeInput = document.getElementById("income-input")
-    const income = incomeInput.value
+
+    const income = incomeInput();
+    // const incomeInput = document.getElementById("income-input")
+    // const income = incomeInput.value
     const saveInput = document.getElementById('save-input')
     const save = saveInput.value
     const savingAmountText = document.getElementById('saving-amount');
     const savingAmount = savingAmountText.innerText;
 
+    // const totalbalanceText = balanceInput();
     const totalbalance = document.getElementById("balance")
     const totalbalanceText = totalbalance.innerText
 
