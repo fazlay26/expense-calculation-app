@@ -33,10 +33,6 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     else {
         alert('please provide positive number');
     }
-    // bonus part
-
-
-
 
 })
 document.getElementById('save-btn').addEventListener('click', function () {
@@ -84,7 +80,4 @@ document.getElementById('save-btn').addEventListener('click', function () {
     else {
         alert('please give postive value')
     }
-
-
-
 })
