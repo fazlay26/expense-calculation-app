@@ -6,16 +6,7 @@ function incomeInput() {
     const income = incomeInput.value
     return income
 }
-// function balanceInput() {
-//     const totalbalance = document.getElementById("balance")
-//     const totalbalanceText = totalbalance.innerText
-//     return totalbalanceText
-
-// }
 document.getElementById('calculate-btn').addEventListener('click', function () {
-    // const incomeInput = document.getElementById("income-input")
-    // const income = incomeInput.value
-
     const income = incomeInput();
     const foodInput = document.getElementById("food-input").value
     const rentInput = document.getElementById('rent-input').value
@@ -28,16 +19,16 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
     if (foodInput > 0 && rentInput > 0 && clotheInput > 0 && income > 0) {
         const fullExpenses = parseInt(foodInput) + parseInt(rentInput) + parseInt(clotheInput)
-        // updated total expenses
-        totalExpenses.innerText = fullExpenses
-        // bonus part
         if (income > fullExpenses) {
             // update balance
             const balance = income - fullExpenses;
             totalbalance.innerText = balance
+
+            // updated total expenses
+            totalExpenses.innerText = fullExpenses
         }
         else {
-            alert("your expenses is more than your income")
+            alert(" your expenses is more than your income")
         }
 
     }
@@ -49,8 +40,7 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 document.getElementById('save-btn').addEventListener('click', function () {
 
     const income = incomeInput();
-    // const incomeInput = document.getElementById("income-input")
-    // const income = incomeInput.value
+
     const saveInput = document.getElementById('save-input')
     const save = saveInput.value
     const savingAmountText = document.getElementById('saving-amount');
@@ -81,15 +71,6 @@ document.getElementById('save-btn').addEventListener('click', function () {
         else {
             alert('your saving amount is moe than your Balance')
         }
-
-
-        // update saving amount
-        // updateSavingAmount = percentage(income, save)
-        // const remainingBalanceText = document.getElementById('remaining-balance');
-        // const remainingBalance = remainingBalanceText.innerText;
-        // debugger;
-        // const finalRemainingBalance = totalbalanceText - updateSavingAmount
-        // remainingBalanceText.innerText = finalRemainingBalance
     }
     else {
         alert('please give postive value')
